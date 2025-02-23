@@ -15,6 +15,7 @@ public interface DeptMapper extends BaseMapperX<DeptDO> {
     default List<DeptDO> selectList(DeptListReqVO reqVO) {
         return selectList(new LambdaQueryWrapperX<DeptDO>()
                 .likeIfPresent(DeptDO::getName, reqVO.getName())
+                .eqIfPresent(DeptDO::getTenantId, reqVO.getTenantId())
                 .eqIfPresent(DeptDO::getStatus, reqVO.getStatus()));
     }
 

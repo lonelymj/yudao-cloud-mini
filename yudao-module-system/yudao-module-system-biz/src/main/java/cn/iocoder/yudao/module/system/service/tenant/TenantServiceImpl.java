@@ -81,6 +81,11 @@ public class TenantServiceImpl implements TenantService {
     }
 
     @Override
+    public List<TenantDO> getTenantList() {
+        return tenantMapper.selectList();
+    }
+
+    @Override
     public void validTenant(Long id) {
         TenantDO tenant = getTenant(id);
         if (tenant == null) {

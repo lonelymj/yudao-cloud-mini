@@ -77,14 +77,12 @@ public class TenantController {
         tenantService.deleteTenant(id);
         return success(true);
     }
-
-    @GetMapping("/get")
-    @Operation(summary = "获得租户")
-    @Parameter(name = "id", description = "编号", required = true, example = "1024")
+    @GetMapping("/get-select-list")
+    @Operation(summary = "获得租户下拉列表")
     @PreAuthorize("@ss.hasPermission('system:tenant:query')")
-    public CommonResult<TenantRespVO> getTenant(@RequestParam("id") Long id) {
-        TenantDO tenant = tenantService.getTenant(id);
-        return success(BeanUtils.toBean(tenant, TenantRespVO.class));
+    public CommonResult<List<TenantRespVO>> getTenantSelectList() {
+        List<TenantDO> tenants = tenantService.getTenantList();
+        return success(BeanUtils.toBean(tenants, TenantRespVO.class));
     }
 
     @GetMapping("/page")

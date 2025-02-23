@@ -120,6 +120,8 @@ public interface TenantService {
      */
     List<Long> getTenantIdList();
 
+    List<TenantDO> getTenantList();
+
     /**
      * 校验租户是否合法
      *
