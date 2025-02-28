@@ -1,6 +1,5 @@
 package cn.iocoder.yudao.framework.tenant.core.context;
 
-import cn.hutool.core.util.StrUtil;
 import cn.iocoder.yudao.framework.common.enums.DocumentEnum;
 import com.alibaba.ttl.TransmittableThreadLocal;
 
